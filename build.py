@@ -12,7 +12,7 @@ OUT = os.path.join(ROOT, "site")
 BASE = "https://salmazahrapsy.github.io/psyweb3/"
 
 # ---- Settings Salma fills in -------------------------------------------------
-SIGNUP_URL = ""      # e.g. a Google Form link. Empty = signup button hidden.
+SIGNUP_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdHkWdobLz43sIWRbDkrBCIzHyt1PH5h_hD041nnxcrDIYb2Q/viewform"  # Google Form. Empty = signup button hidden.
 CONTACT_EMAIL = "psyweb3@zohomail.com"   # a PsyWeb3 email you are happy to publish. Empty = GitHub only.
 UPDATED = datetime.date.today().isoformat()
 # -----------------------------------------------------------------------------
@@ -66,8 +66,9 @@ def page(fname, title, desc, body):
         f.write(doc)
 
 
-signup = (f'<p><a class="button" href="{html.escape(SIGNUP_URL)}">Get the starter kit updates</a></p>'
-          '<p class="small">We collect your email only, to send PsyWeb3 updates. See <a href="privacy.html">Privacy</a>.</p>'
+signup = (f'<p>Join the PsyWeb3 list for new research notes and reading lists. Psychology students and young researchers can also volunteer for a 20–30 minute online interview about their research needs.</p>'
+          f'<p><a class="button" href="{html.escape(SIGNUP_URL)}">Sign up / Daftar</a></p>'
+          '<p class="small">The form (Google Forms) asks for your email, name, role, affiliation, country and research interests. See <a href="privacy.html">Privacy</a>.</p>'
           if SIGNUP_URL else
           '<p class="notice">Email updates open soon. Meanwhile, start with the <a href="reading-list.html">free starter reading list</a>.</p>')
 
@@ -210,14 +211,15 @@ page("privacy.html", "Privacy | PsyWeb3",
      "How PsyWeb3 handles personal data under Indonesia's Personal Data Protection Law (UU 27/2022).",
 f"""<article class="prose">
 <h1>Privacy</h1>
-<p class="lede">This website sets no cookies, runs no analytics and collects no personal data.</p>
-<h2>If you join the email list</h2>
+<p class="lede">This website itself sets no cookies, runs no analytics and collects no personal data. Personal data is collected only if you fill in the signup form.</p>
+<h2>If you use the signup form</h2>
 <ul>
-  <li><strong>What we collect:</strong> your email address only.</li>
-  <li><strong>Why:</strong> to send PsyWeb3 updates and research notes.</li>
-  <li><strong>Who controls it:</strong> PT Psyweb Tiga Indonesia.</li>
-  <li><strong>Your rights:</strong> you can ask to see, correct or delete your data at any time, in line with Indonesia's Personal Data Protection Law (UU No. 27 Tahun 2022). Every email includes a way to unsubscribe.</li>
-  <li>We never sell or share your data.</li>
+  <li><strong>What we collect:</strong> email address, name or preferred name, current role, university or affiliation (optional), country and time zone, research interests, familiarity with Web3, an optional open question, interview preference, preferred language, and your consent.</li>
+  <li><strong>Why:</strong> to send PsyWeb3 updates and reading lists, and, only if you say yes, to arrange a research interview.</li>
+  <li><strong>Where it is stored:</strong> the form runs on Google Forms and answers are kept in a Google Sheet controlled by PT Psyweb Tiga Indonesia. Google processes the data as the service provider.</li>
+  <li><strong>How long:</strong> only as long as needed for these purposes. We delete your answers when you ask.</li>
+  <li><strong>Your rights:</strong> you can ask to see, correct or delete your data, or withdraw consent, at any time by emailing {html.escape(CONTACT_EMAIL) if CONTACT_EMAIL else 'us'}, in line with Indonesia's Personal Data Protection Law (UU No. 27 Tahun 2022). Every email includes a way to unsubscribe.</li>
+  <li>We never sell your data or share it outside PsyWeb3.</li>
 </ul>
 <h2>Research participation</h2>
 <p>Interviews and surveys use informed consent, keep notes anonymous, and never record without your agreement. You can stop at any time.</p>
